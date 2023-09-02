@@ -1,4 +1,5 @@
 import oci
+import os
 from flask import Flask, render_template, request 
 
 signer = oci.auth.signers.InstancePrincipalsSecurityTokenSigner()
@@ -8,9 +9,6 @@ namespace = "hutchhk"  # The OCI namespace
 bucket_name = "bucket-videomakers" # The OCI bucket name
 
 app = Flask(__name__)
-
-if __name__ == '__main__':
-    app.run(debug=True)
 
 @app.route("/", methods=["GET", "POST"])
 def upload_file():
@@ -32,3 +30,7 @@ def upload_file():
     objectslist = list_objects_response.data.objects
     
     return render_template("upload.html", objectslist_page=objectslist)
+
+if __name__ == '__main__':
+    port = int(os.environ.get('PORT', 5000))
+    app.run(debug=True, host='0.0.0.0', port=port)
