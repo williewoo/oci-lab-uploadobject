@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OCI Object Storage Example Code Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        h3 {
+            margin-top: 20px;
+        }
+
+        form {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        input[type="file"] {
+            display: block;
+            margin: 10px auto;
+            padding: 20px;
+            font-size: 1.2rem;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        input[type="submit"] {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 1rem;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 5px;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 10px;
+            }
+
+            h2, h3 {
+                font-size: 1.2rem;
+            }
+
+            input[type="file"] {
+                padding: 16px;
+                font-size: 1rem;
+            }
+
+            input[type="submit"] {
+                padding: 8px 16px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Keyless Authentication using</h2>
+        <h2>Instance Principals & Tag</h2>
+
+        <h3>Upload a File to Bucket</h3>
+        <form method="POST" enctype="multipart/form-data">
+            <input type="file" name="myfile">
+            <input type="submit" value="Upload">
+        </form>
+
+        <h3>List Uploaded Files</h3>
+        <ul>
+            {% for object in objectslist_page %}
+                <li>{{ object.name }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
