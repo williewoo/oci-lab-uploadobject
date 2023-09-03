@@ -1,11 +1,18 @@
 # oci-lab-uploadobject
-A lab to show how to setup a python flask to upload files to OCI object storage bucket without any keys and secrets
+A lab to show how to setup a python flask to upload files to OCI object storage bucket using Tags, Dynamic Group and Policy
 
 ![img](drawio/Overview_Diagram.png)
 
 This is a demo to show a life usecase to allow endusers upload files to OCI Object Storage Bucket
+One of the security requirement is do not allow hardcode any user name, creditdetial, key inside any configuration 
 
+This demo show how to use OCI policy and Dynamic Group to allow the virtual machine access the object storage
+To avoid hardcoding, a Tag is used
 
+Highlights:
+A virtual machine running python and assigned a Tag
+A Dynamic Group include the Tagged resources (Virtual Mahcine)
+A policy to allow Dynamic Group access Object Storage Bucket
 
 
 Create a compute instance
