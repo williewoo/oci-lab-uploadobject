@@ -1,7 +1,10 @@
 # oci-lab-uploadobject
-A lab to show how to setup a python flask to upload objects to OCI object storage without any keys and secrets
+A lab to show how to setup a python flask to upload files to OCI object storage bucket without any keys and secrets
 
-This is a demo to show a life usecase as below
+![img](drawio/Overview_Diagram.png)
+
+This is a demo to show a life usecase to allow endusers upload files to OCI Object Storage Bucket
+
 
 
 
